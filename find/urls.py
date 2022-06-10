@@ -18,6 +18,5 @@ from django.urls import path
 from . import views
 app_name ="practic"
 urlpatterns = [
-    path('',views.index),
-    path('test',views.test)
+    path('',views.index)
 ]
