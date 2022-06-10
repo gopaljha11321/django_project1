@@ -43,7 +43,7 @@ def index(request):
             response['Content-Disposition'] = "attachment; filename=%s" % "report.csv"
             return response
         except:
-            return render("index.html")
+            return render(request,"index.html")
     delete=request.POST.get("delete","default")
     if(delete !="default"):
         file=File.objects.all()
@@ -86,6 +86,7 @@ def index(request):
             return render(request,"index.html",data)
     except:
         return render(request,"index.html")
+
 
 
 
