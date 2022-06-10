@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load  static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gopal</title>
+</head>
+<body>
+    <form method="post"  enctype="multipart/form-data">{% csrf_token%}
+        <h1>Upload CSV<br></h1>
+        <input type="file" name="file" > 
+        <button type="submit">Upload</button>
+        <br><p> {{mes}}</p>
+    </form>
+    <form method="post" enctype="multipart/form-data">{% csrf_token%}
+        <h1>Start Date</h1>
+        <input type="date" name="start" id="">
+        <h1>End Date</h1>
+        <input type="date" name="end" id="">
+        <button type="submit">Fetch Data</button>
+    </form>
+    <br>
+    <form method="post" > {% csrf_token%}
+        <input value="Download"  type="submit" name="download"></input>
+    <br>
+    <br>
+   
+    <form method="post"> {% csrf_token%}
+        file <input value="Delete"  type="submit" name="delete">
+    </form>
+    <br>
+    <br>
+<table width="100%" cel>
+    <tr >
+        <th>Image Name</th>
+        <th>Detections</th>
+        <th>image</th>
+    </tr>
+    {% for i in ele %}
+    <tr >
+        <td>{{i.image_name}}</td>
+        <td>{{i.objects_detected}}</td>
+        <td><img src="{% static i.image_name %}" width="100px" height="100px"</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+</body>
+<style>
+    table,th,td{
+        border:1px solid black;
+    }
+    table
+    {
+        border-spacing: 0px;
+    }
+
+</style>
+</html>
