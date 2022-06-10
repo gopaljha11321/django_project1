@@ -86,14 +86,6 @@ def index(request):
             return render(request,"index.html",data)
     except:
         return render(request,"index.html")
-def test(request):
-    start=request.POST.get("start")
-    end=request.POST.get("end")
-    x=Element.objects.filter(timestamp__gte = start , timestamp__lte=end)
-    
-    
-    
-    return hr("get data")
 
 
 
